@@ -46,7 +46,7 @@ abstract class GSheetDownloadTask : DefaultTask() {
 
     @TaskAction
     fun download() {
-        logger.lifecycle("googleApiKeyFilePath is: ${googleApplicationCredentials.orNull}")
+        logger.lifecycle("googleApplicationCredentials is: ${googleApplicationCredentials.orNull}")
         logger.lifecycle("downloads is: ${downloads.orNull}")
         logger.lifecycle("outputDir is: ${outputDir.orNull}")
 
