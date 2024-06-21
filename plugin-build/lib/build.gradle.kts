@@ -17,10 +17,11 @@ repositories {
 dependencies {
 
     // lombok
-    compileOnly("org.projectlombok:lombok:1.18.22")
-    testCompileOnly("org.projectlombok:lombok:1.18.22")
-    annotationProcessor("org.projectlombok:lombok:1.18.22")
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.22")
+    val lombokVersion = "1.18.32"
+    compileOnly("org.projectlombok:lombok:$lombokVersion")
+    testCompileOnly("org.projectlombok:lombok:$lombokVersion")
+    annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+    testAnnotationProcessor("org.projectlombok:lombok:$lombokVersion")
     // end lombok
     implementation("org.slf4j:slf4j-api:2.0.13")
 
