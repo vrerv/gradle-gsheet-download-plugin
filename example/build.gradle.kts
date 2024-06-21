@@ -1,8 +1,8 @@
 plugins {
     java
-    id("com.ncorti.kotlin.gradle.template.plugin")
+    id("com.vrerv.gradle.plugin.gsheet.download")
 }
 
-templateExampleConfig {
+gsheetDownloadConfig {
     message.set("Just trying this gradle plugin...")
 }

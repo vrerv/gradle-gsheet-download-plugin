@@ -1,4 +1,4 @@
-package com.ncorti.kotlin.gradle.template.plugin
+package com.vrerv.gradle.plugin.gsheet.download
 
 import org.gradle.api.Project
 import org.gradle.api.file.RegularFileProperty
@@ -8,7 +8,7 @@ import javax.inject.Inject
 const val DEFAULT_OUTPUT_FILE = "template-example.txt"
 
 @Suppress("UnnecessaryAbstractClass")
-abstract class TemplateExtension
+abstract class GSheetDownloadExtension
     @Inject
     constructor(project: Project) {
         private val objects = project.objects
