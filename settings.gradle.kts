@@ -25,7 +25,7 @@ gradleEnterprise {
     }
 }
 
-rootProject.name = "kotlin-gradle-plugin-template"
+rootProject.name = "gradle-gsheet-download-plugin"
 
 include(":example")
 includeBuild("plugin-build")
