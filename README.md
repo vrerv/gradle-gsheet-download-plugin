@@ -1,30 +1,41 @@
-# kotlin-gradle-plugin-template 🐘
+# gradle-gsheet-download-plugin 🐘
 
-[![Use this template](https://img.shields.io/badge/-Use%20this%20template-brightgreen)](https://github.com/cortinico/kotlin-gradle-plugin-template/generate) [![Pre Merge Checks](https://github.com/cortinico/kotlin-gradle-plugin-template/workflows/Pre%20Merge%20Checks/badge.svg)](https://github.com/cortinico/kotlin-gradle-plugin-template/actions?query=workflow%3A%22Pre+Merge+Checks%22)  [![License](https://img.shields.io/github/license/cortinico/kotlin-android-template.svg)](LICENSE) ![Language](https://img.shields.io/github/languages/top/cortinico/kotlin-android-template?color=blue&logo=kotlin)
+[![Pre Merge Checks](https://github.com/cortinico/kotlin-gradle-plugin-template/workflows/Pre%20Merge%20Checks/badge.svg)](https://github.com/cortinico/kotlin-gradle-plugin-template/actions?query=workflow%3A%22Pre+Merge+Checks%22)  [![License](https://img.shields.io/github/license/cortinico/kotlin-android-template.svg)](LICENSE) ![Language](https://img.shields.io/github/languages/top/cortinico/kotlin-android-template?color=blue&logo=kotlin)
 
-A simple Github template that lets you create a **Gradle Plugin** 🐘 project using **100% Kotlin** and be up and running in a **few seconds**.
-
-This template is focused on delivering a project with **static analysis** and **continuous integration** already in place.
+A Gradle Plugin to download Google Sheets as CSV files.
 
 ## How to use 👣
 
-Just click on [![Use this template](https://img.shields.io/badge/-Use%20this%20template-brightgreen)](https://github.com/cortinico/kotlin-gradle-plugin-template/generate) button to create a new repo starting from this template.
+see the [example](example/build.gradle.kts) folder for a working example.
 
-Once created don't forget to update the:
-- [gradle.properties](plugin-build/gradle.properties)
-- Plugin Usages (search for [com.ncorti.kotlin.gradle.template](https://github.com/cortinico/kotlin-gradle-plugin-template/search?q=com.ncorti.kotlin.gradle.template&unscoped_q=com.ncorti.kotlin.gradle.template) in the repo and replace it with your ID).
+You have to set GOOGLE_APPLICATION_CREDENTIALS environment variable to the path of your service account key file.
+Otherwise, you can set the path in the plugin configuration.
 
-## Features 🎨
+```kotlin
+import com.vrerv.gradle.plugin.gsheet.download.DownloadConfig
 
-- **100% Kotlin-only template**.
-- Plugin build setup with **composite build**.
-- 100% Gradle Kotlin DSL setup.
-- Dependency versions managed via Gradle Versions Catalog (`libs.versions.toml`).
-- CI Setup with GitHub Actions.
-- Kotlin Static Analysis via `ktlint` and `detekt`.
-- Publishing-ready to Gradle Portal.
-- Issues Template (bug report + feature request)
-- Pull Request Template.
+plugins {
+    id("com.vrerv.gradle.plugin.gsheet.download")
+}
+
+gsheetDownloadConfig {
+
+    // googleApplicationCredentials = "path/to/your/service-account-key.json"
+    downloads.set(
+        listOf(
+            DownloadConfig(
+                sheetId = "1SVp5gkj-aHZCxfSLKLIzGKyJOY5Tzadqo-_TFuxGBOg",
+                sheetName = "Sheet1",
+                rangeFrom = "A1",
+                rangeTo = "H1000",
+                outputFileName = "test.csv",
+            ),
+        ),
+    )
+
+    outputDir = file("build")
+}
+```
 
 ## Composite Build 📦
 

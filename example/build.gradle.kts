@@ -1,8 +1,23 @@
+import com.vrerv.gradle.plugin.gsheet.download.DownloadConfig
+
 plugins {
     java
-    id("com.ncorti.kotlin.gradle.template.plugin")
+    id("com.vrerv.gradle.plugin.gsheet.download")
 }
 
-templateExampleConfig {
-    message.set("Just trying this gradle plugin...")
+gsheetDownloadConfig {
+
+    downloads.set(
+        listOf(
+            DownloadConfig(
+                sheetId = "1SVp5gkj-aHZCxfSLKLIzGKyJOY5Tzadqo-_TFuxGBOg",
+                sheetName = "Sheet1",
+                rangeFrom = "A1",
+                rangeTo = "H1000",
+                outputFileName = "test.csv",
+            ),
+        ),
+    )
+
+    outputDir = file("build")
 }
