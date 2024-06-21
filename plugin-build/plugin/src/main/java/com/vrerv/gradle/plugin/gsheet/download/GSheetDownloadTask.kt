@@ -29,7 +29,10 @@ abstract class GSheetDownloadTask : DefaultTask() {
     }
 
     @get:Input
-    @get:Option(option = "googleApplicationCredentials", description = "The google application credentials file path for google api")
+    @get:Option(
+        option = "googleApplicationCredentials",
+        description = "The google application credentials file path for google api",
+    )
     @get:Optional
     abstract val googleApplicationCredentials: Property<String>
 
