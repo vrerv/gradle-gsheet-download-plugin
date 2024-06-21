@@ -29,12 +29,12 @@ abstract class GSheetDownloadTask : DefaultTask() {
     }
 
     @get:Input
-    @get:Option(option = "googleApiKeyFilePath", description = "key file path for google api")
+    @get:Option(option = "googleApplicationCredentials", description = "The google application credentials file path for google api")
     @get:Optional
     abstract val googleApplicationCredentials: Property<String>
 
     @get:Input
-    @get:Option(option = "downloads", description = "List of files to download from Google sheet")
+    @get:Option(option = "downloads", description = "List of download configuration to download from Google sheet")
     abstract val downloads: ListProperty<DownloadConfig>
 
     @get:InputDirectory
@@ -46,6 +46,7 @@ abstract class GSheetDownloadTask : DefaultTask() {
 
     @TaskAction
     fun download() {
+        logger.lifecycle("GOOGLE_APPLICATION_CREDENTIALS is: ${System.getenv("GOOGLE_APPLICATION_CREDENTIALS")}")
         logger.lifecycle("googleApplicationCredentials is: ${googleApplicationCredentials.orNull}")
         logger.lifecycle("downloads is: ${downloads.orNull}")
         logger.lifecycle("outputDir is: ${outputDir.orNull}")
@@ -57,6 +58,7 @@ abstract class GSheetDownloadTask : DefaultTask() {
 
         downloads.get().forEach { downloadConfig ->
             val outputFile = outputDir.resolve(downloadConfig.outputFileName)
+            logger.lifecycle("Downloading ${downloadConfig.sheetName} to ${outputFile.absolutePath}")
             downloader.writeCsv(
                 downloadConfig.sheetId,
                 "${downloadConfig.sheetName}!${downloadConfig.rangeFrom}:${downloadConfig.rangeTo}",
