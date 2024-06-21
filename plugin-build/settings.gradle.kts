@@ -34,3 +34,4 @@ gradleEnterprise {
 rootProject.name = ("com.vrerv.gradle.plugin.gsheet.download")
 
 include(":plugin")
+include(":lib")

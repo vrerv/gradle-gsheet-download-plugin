@@ -10,6 +10,8 @@ dependencies {
     implementation(kotlin("stdlib"))
     implementation(gradleApi())
 
+    implementation(project(":lib"))
+
     testImplementation(libs.junit)
 }
 
