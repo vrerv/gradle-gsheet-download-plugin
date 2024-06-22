@@ -28,10 +28,10 @@ dependencies {
     implementation("com.opencsv:opencsv:5.9") {
         // ignore commons-collections that has a vulnerability.
         // https://repo1.maven.org/maven2/com/opencsv/opencsv/5.9/opencsv-5.9.pom - uses commons-collections4
-        exclude(group = "org.apache.commons", module = "commons-collections4")
+        exclude(group = "org.apache.commons", module = "commons-collections")
     }
 
-    implementation("com.google.api-client:google-api-client:1.25.0")
+    implementation("com.google.api-client:google-api-client:1.35.2")
     implementation("com.google.auth:google-auth-library-oauth2-http:1.4.0")
     implementation("com.google.apis:google-api-services-sheets:v4-rev612-1.25.0")
 
