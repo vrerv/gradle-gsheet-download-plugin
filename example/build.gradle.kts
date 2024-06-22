@@ -7,6 +7,7 @@ plugins {
 
 gsheetDownloadConfig {
 
+    // googleApplicationCredentials = "/Users/soonoh/service/key/api-project-502110011071-d5a05d3385ff.json"
     downloads.set(
         listOf(
             DownloadConfig(
