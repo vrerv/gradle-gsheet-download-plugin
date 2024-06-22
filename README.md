@@ -1,6 +1,6 @@
 # gradle-gsheet-download-plugin 🐘
 
-[![Pre Merge Checks](https://github.com/vrerv/gradle-gsheet-downlod-plugin/workflows/Pre%20Merge%20Checks/badge.svg)](https://github.com/vrerv/gradle-gsheet-downlod-plugin/actions?query=workflow%3A%22Pre+Merge+Checks%22)
+[![Pre Merge Checks](https://github.com/vrerv/gradle-gsheet-download-plugin/workflows/Pre%20Merge%20Checks/badge.svg)](https://github.com/vrerv/gradle-gsheet-download-plugin/actions?query=workflow%3A%22Pre+Merge+Checks%22)
 
 A Gradle Plugin to download Google Sheets as CSV files.
 
