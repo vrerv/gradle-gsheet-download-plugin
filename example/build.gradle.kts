@@ -1,8 +1,19 @@
 import com.vrerv.gradle.plugin.gsheet.download.DownloadConfig
 
+buildscript {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+}
+
 plugins {
     java
     id("com.vrerv.gradle.plugin.gsheet.download")
+}
+
+repositories {
+    mavenCentral()
 }
 
 gsheetDownloadConfig {

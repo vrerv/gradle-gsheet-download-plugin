@@ -6,11 +6,16 @@ plugins {
     alias(libs.plugins.pluginPublish)
 }
 
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
 dependencies {
     implementation(kotlin("stdlib"))
     implementation(gradleApi())
-
-    implementation(project(":lib"))
+    implementation(project(":google-sheet-to-csv"))
+    // implementation("com.vrerv.lib.googlecloud.sheets:google-sheet-to-csv:${property("library.version")}")
 
     testImplementation(libs.junit)
 }

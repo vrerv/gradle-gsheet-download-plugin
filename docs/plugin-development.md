@@ -1,5 +1,17 @@
 # GSheetDownload Plugin Development 🛠
 
+## Library
+
+The plugin requires the `google-sheet-to-csv` library, and you need to publish this library to maven repository when it is changed
+
+It is not created CD pipeline for this library, so you need to publish it manually.
+
+```shell
+JAVA_HOME=/opt/sdkman/candidates/java/21.0.3-amzn ./gradlew -p plugin-build :google-sheet-to-csv:publishToSonatype -Psigning.keyId=$SONATYPE_SIGNING_KEY_ID -Psigning.password=$SONATYPE_SIGNING_KEY_PASSWORD -Psigning.secretKeyRingFile=$SONATYPE_SIGNING_KEY_SECRET_FILE -PsonatypeUsername=$SONATYPE_API_USERNAME -PsonatypePassword=$SONATYPE_API_PASSWORD  --stacktrace
+````
+
+* the `sonatype-maven-central-publisher:1.0.6` plugin only works with Java 21 or higher, so you need to set `JAVA_HOME` to Java 21 or higher.
+
 ## Composite Build 📦
 
 This template is using a [Gradle composite build](https://docs.gradle.org/current/userguide/composite_builds.html) to build, test and publish the plugin. This means that you don't need to run Gradle twice to test the changes on your Gradle plugin (no more `publishToMavenLocal` tricks or so).

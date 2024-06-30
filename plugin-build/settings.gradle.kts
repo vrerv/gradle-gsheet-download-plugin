@@ -34,4 +34,4 @@ develocity {
 rootProject.name = ("com.vrerv.gradle.plugin.gsheet.download")
 
 include(":plugin")
-include(":lib")
+include(":google-sheet-to-csv")
