@@ -56,6 +56,33 @@ gsheetDownloadConfig {
     outputDir = file("build")
 }
 ```
+
+build.gradle
+
+```groovy
+import com.vrerv.gradle.plugin.gsheet.download.DownloadConfig
+
+plugins {
+    id "com.vrerv.gradle.plugin.gsheet.download"
+}
+
+gsheetDownloadConfig {
+
+    // googleApplicationCredentials = "path/to/your/service-account-key.json"
+    downloads = [
+        new DownloadConfig(
+            "1SVp5gkj-aHZCxfSLKLIzGKyJOY5Tzadqo-_TFuxGBOg",
+            "Sheet1",
+            "A1",
+            "H1000",
+            "test.csv",
+        )
+    ]
+
+    outputDir = file("build")
+}
+```
+
 ## Development
 
 * [Plugin Development](docs/plugin-development.md)
